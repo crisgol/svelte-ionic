@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script>
+      function dismissModal() {
+        const modal = document.querySelector("ion-modal");
+        modal.dismiss();
+      }
+
+      customElements.define(
+        "modal-page",
+        class extends HTMLElement {
+          connectedCallback() {
+            this.innerHTML = `
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modal Header</ion-title>
+          <ion-buttons slot="primary">
+            <ion-button onClick="dismissModal()">
+              <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        Modal Content
+        <ion-button onClick="dismissModal()">dismissModal</ion-button>
+      </ion-content>`;
+          }
+        }
+      );
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="theme-color" content="#333333" />

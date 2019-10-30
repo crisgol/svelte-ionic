@@ -1,12 +1,16 @@
 <script>
 
-
-function presentModal() {
-  // create the modal with the `modal-page` component
+function presentModal(event) {
+   // create the modal with the `modal-page` component
   const modalElement = document.createElement('ion-modal');
-  modalElement.component = 'modal-page';
+  modalElement.component = "modal-page";
 
-  // present the modal
+
+  setTimeout(()=>{
+    modalElement.dismiss().then(()=>{});
+  },13000);
+
+// present the modal
   document.body.appendChild(modalElement);
   return modalElement.present();
 }
@@ -122,13 +126,12 @@ async function presentMenu() {
 	<title>Sapper project template</title>
 </svelte:head>
 
-
 	<h1>Great success!</h1>
 <ion-icon name="arrow-dropleft-circle"></ion-icon>
 
 <ion-input value="custom"></ion-input>
 <ion-avatar>
-  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  <img alt="borat" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
 </ion-avatar>
 
 <ion-menu side="start" menu-id="first">
