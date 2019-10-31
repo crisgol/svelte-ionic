@@ -80,7 +80,9 @@ const alert = document.createElement('ion-alert');
 async function presentMenu() {
 	const menuCtrl = document.querySelector('ion-menu-controller');
 
- menuCtrl.enable(true, 'first');
+console.log('MENU', menuCtrl)
+// menuCtrl.enable(true, 'first');
+ menuCtrl.open();
 }
 
 
@@ -134,24 +136,6 @@ async function presentMenu() {
   <img alt="borat" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
 </ion-avatar>
 
-<ion-menu side="start" menu-id="first">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-<ion-menu-controller></ion-menu-controller>
 
 	<figure>
 		<img alt='Borat' src='great-success.png'>
@@ -166,7 +150,7 @@ async function presentMenu() {
 			<ion-button on:click="{presentActionSheet}" >ActionSheet</ion-button>
 			<ion-button on:click="{presentAlert}" >PresentAlert</ion-button>
 			<ion-button on:click="{presentMenu}" >PresentMenu</ion-button>
-				<ion-button on:click="{presentModal}" >presentModal</ion-button>
+  		<ion-button on:click="{presentModal}" >presentModal</ion-button>
 			
 
 

@@ -2,6 +2,13 @@
 <html>
   <head>
     <script>
+      function closeMenu() {
+        const menuCtrl = document.querySelector("ion-menu-controller");
+        console.log("MENU", menuCtrl);
+        // menuCtrl.enable(true, 'first');
+        menuCtrl.close();
+      }
+
       function dismissModal() {
         const modal = document.querySelector("ion-modal");
         modal.dismiss();
@@ -57,12 +64,42 @@
   </head>
   <body>
     <ion-app>
-      <ion-content>
+      <ion-menu side="start" content-id="first">
+        <ion-header>
+          <ion-toolbar translucent>
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item>
+              <ion-icon name="home" slot="start"></ion-icon>
+              <ion-label>Home</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="person" slot="start"></ion-icon>
+              <ion-label>Profile</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="chatbubbles" slot="start"></ion-icon>
+              <ion-label>Messages</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="settings" slot="start"></ion-icon>
+              <ion-label>Settings</ion-label>
+            </ion-item>
+          </ion-list>
+          <ion-button onClick="closeMenu()">Close</ion-button>
+        </ion-content>
+      </ion-menu>
+
+      <ion-content id="first">
         <!-- The application will be rendered inside this element,
 	     because `src/client.js` references it -->
         <div id="sapper">%sapper.html%</div>
       </ion-content>
     </ion-app>
+    <ion-menu-controller></ion-menu-controller>
 
     <!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
